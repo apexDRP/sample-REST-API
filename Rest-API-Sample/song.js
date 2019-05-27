@@ -1,3 +1,4 @@
+//initialize the song
 function Song(sId, sTitle, SArtist, sGenre) {
     this.id = sId;
     this.title = sTitle;
