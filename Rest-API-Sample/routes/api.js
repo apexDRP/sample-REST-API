@@ -22,8 +22,9 @@ router.put('/songs/:id', (req, res) => {
         songs[index].title = req.body.sTitle;
         songs[index].artist = req.body.sArtist;
         songs[index].genre = req.body.sGenre;
+        res.status(200).send(songs[index]);
     }
-    res.status(200).send(songs[index]);
+    res.status(404).send({message: "resource not found"});
 });
 
 //delete the song that matches given id
@@ -33,8 +34,9 @@ router.delete('/songs/:id', (req, res) => {
     if(index > -1) {
         song = songs[index];
         songs.splice(index, 1);
+        res.status(200).send(song);
     }
-    res.status(200).send(song);
+    res.status(404).send({message: "resource not found"});
 });
 //export the router to use in index.js
 module.exports = router;
